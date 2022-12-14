@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.chromepaymobile.Api.Network.AllUrl;
+
+import org.json.JSONObject;
 
 public class LinkServicesActivity extends AppCompatActivity {
 
@@ -54,6 +57,17 @@ public class LinkServicesActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
 
+                    Log.i("LINKE_VOLLEY", response);
+
+                    try {
+
+                        JSONObject jsonObject = new JSONObject(response);
+
+                        boolean status = jsonObject.getBoolean("status");
+
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
             },
                     new Response.ErrorListener() {

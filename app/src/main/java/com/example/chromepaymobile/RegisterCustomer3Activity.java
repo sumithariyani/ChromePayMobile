@@ -208,18 +208,15 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-               /* int preference = ScanConstants.OPEN_CAMERA;
+                int preference = ScanConstants.OPEN_CAMERA;
                 Intent intent = new Intent(RegisterCustomer3Activity.this, ScanActivity.class);
                 intent.putExtra(ScanConstants.OPEN_INTENT_PREFERENCE, preference);
+                startActivityForResult(intent, GALLERY_REQ_CODE_DOCUMENT);
 
-                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                intent.setFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-                startActivityForResult(intent, GALLERY_REQ_CODE_DOCUMENT);*/
-
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                /*Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 //                intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 //                Bitmap.CompressFormat.JPEG.toString();
-                startActivityForResult(intent,GALLERY_REQ_CODE_DOCUMENT);
+                startActivityForResult(intent,GALLERY_REQ_CODE_DOCUMENT);*/
             }
         });
 
@@ -227,17 +224,15 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-               /* int preference = ScanConstants.OPEN_CAMERA;
+                int preference = ScanConstants.OPEN_CAMERA;
                 Intent intent = new Intent(RegisterCustomer3Activity.this, ScanActivity.class);
                 intent.putExtra(ScanConstants.OPEN_INTENT_PREFERENCE, preference);
-                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                intent.setFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-                startActivityForResult(intent, GALLERY_REQ_CODE_REGISTRATION);*/
-
+                startActivityForResult(intent, GALLERY_REQ_CODE_REGISTRATION);
+/*
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 //                intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 //                Bitmap.CompressFormat.JPEG.toString();
-                startActivityForResult(intent,GALLERY_REQ_CODE_REGISTRATION);
+                startActivityForResult(intent,GALLERY_REQ_CODE_REGISTRATION);*/
             }
         });
 
@@ -254,6 +249,7 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+/*
         if (resultCode == RESULT_OK){
 
             if (requestCode == GALLERY_REQ_CODE_RESIDENCE){
@@ -262,7 +258,28 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
                 proof.setImageBitmap(residenceBmp);
             }
         }
+*/
 
+/*
+        if (resultCode == RESULT_OK){
+
+            if (requestCode == GALLERY_REQ_CODE_REGISTRATION){
+
+                registrationBmp = (Bitmap) (data.getExtras().get("data"));
+                land.setImageBitmap(registrationBmp);
+            }
+        }
+*/
+
+
+/*        if (resultCode == RESULT_OK){
+
+            if (requestCode == GALLERY_REQ_CODE_DOCUMENT){
+
+                documentBmp = (Bitmap) (data.getExtras().get("data"));
+                local.setImageBitmap(documentBmp);
+            }
+        }*/
 
 /*
         if (requestCode == GALLERY_REQ_CODE_RESIDENCE  && data != null && data.getData() != null && resultCode == Activity.RESULT_OK) {
@@ -290,14 +307,6 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
         }
 */
 
-        if (resultCode == RESULT_OK){
-
-            if (requestCode == GALLERY_REQ_CODE_DOCUMENT){
-
-                documentBmp = (Bitmap) (data.getExtras().get("data"));
-                local.setImageBitmap(documentBmp);
-            }
-        }
 
 /*
         if (requestCode == GALLERY_REQ_CODE_DOCUMENT && data != null && data.getData() != null && resultCode == Activity.RESULT_OK) {
@@ -324,14 +333,6 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
         }
 */
 
-        if (resultCode == RESULT_OK){
-
-            if (requestCode == GALLERY_REQ_CODE_REGISTRATION){
-
-                registrationBmp = (Bitmap) (data.getExtras().get("data"));
-                land.setImageBitmap(registrationBmp);
-            }
-        }
 
 /*
         if (requestCode == GALLERY_REQ_CODE_REGISTRATION && data != null && data.getData() != null && resultCode == Activity.RESULT_OK) {
@@ -359,7 +360,7 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
 */
 
 //////////////////////////////////////////////////////////////////////////////////////////
-           /* if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK){
+            if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK){
 
                 residence = data.getExtras().getParcelable(ScanConstants.SCANNED_RESULT);;
                 proof.setImageBitmap(residenceBmp);
@@ -431,7 +432,6 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-*/
         }
 
     public void Dialog() {
