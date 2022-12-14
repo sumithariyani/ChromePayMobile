@@ -360,7 +360,7 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
 */
 
 //////////////////////////////////////////////////////////////////////////////////////////
-            if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK){
+            if (requestCode == GALLERY_REQ_CODE_RESIDENCE && resultCode == Activity.RESULT_OK){
 
                 residence = data.getExtras().getParcelable(ScanConstants.SCANNED_RESULT);;
                 proof.setImageBitmap(residenceBmp);

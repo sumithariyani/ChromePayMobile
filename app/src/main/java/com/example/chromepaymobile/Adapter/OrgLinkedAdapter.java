@@ -54,7 +54,8 @@ public class OrgLinkedAdapter extends RecyclerView.Adapter<OrgLinkedAdapter.View
             super(itemView);
 
             logo = itemView.findViewById(R.id.fuse_img);
-            name = itemView.findViewById(R.id.)
+            name = itemView.findViewById(R.id.fuse_name);
+
         }
     }
 
