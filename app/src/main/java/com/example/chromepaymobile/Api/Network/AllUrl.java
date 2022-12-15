@@ -2,9 +2,9 @@ package com.example.chromepaymobile.Api.Network;
 
 public class AllUrl {
 
-//    public static final String BaseUrl = "http://ec2-user@ec2-13-233-63-235.ap-south-1.compute.amazonaws.com:3300/";
+    public static final String BaseUrl = "http://ec2-user@ec2-13-233-63-235.ap-south-1.compute.amazonaws.com:3300/";
 
-    public static final String BaseUrl = "http://192.168.1.158:3300/";
+//    public static final String BaseUrl = "http://192.168.1.158:3300/";
 
     public static final String Login = BaseUrl+"agent_login_new";
 

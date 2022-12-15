@@ -22,7 +22,9 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Base64;
@@ -126,6 +128,15 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
         asset_type = findViewById(R.id.sp_asset_type);
 
         mobile = getIntent().getStringExtra("mobile");
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                if (!Environment.isExternalStorageManager()) {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                    Uri uri = Uri.fromParts("package", getPackageName(), null);
+                    intent.setData(uri);
+                    startActivity(intent);
+                }
+            }
 
 
         select_asset_type.add("Select Asset");
@@ -367,9 +378,14 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
                 Bitmap lastBitmap = null;
 
                 try {
-                    residenceBmp = MediaStore.Images.Media.getBitmap(getContentResolver(),residence);
+                    if (requestCode == GALLERY_REQ_CODE_RESIDENCE) {
+                        residenceBmp = (Bitmap) data.getExtras().get("data");
+                    }else{
+                        residenceBmp = MediaStore.Images.Media.getBitmap(getContentResolver(),residence);
+                    }
 
-                    getContentResolver().delete(residence, null, null);
+
+//                    getContentResolver().delete(residence, null, null);
 
                     System.out.println("hjsdkahf; "+Utils.getUri(RegisterCustomer3Activity.this, residenceBmp));
                     proof.setImageBitmap(residenceBmp);
@@ -973,7 +989,7 @@ public class RegisterCustomer3Activity extends AppCompatActivity {
 
         volleyMultipartRequest.setRetryPolicy(new DefaultRetryPolicy(
                 5000,
-                0,
+                9,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT)
         );
     }
